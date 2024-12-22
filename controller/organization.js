@@ -10,6 +10,18 @@ async function getInfo(request, reply) {
   }
 }
 
+async function updateInfo(request, reply) {
+  try {
+    const data_organization = request.body;
+    const { id } = request.params;
+    const data = await organizationService.updateInfo({id, data_organization});
+    return reply.status(statusCode.success).send({ data: data, message: successMessage.index });
+  } catch (err) {
+    reply.status(statusCode.internalError).send({ message: failMessage.internalError });
+  }
+}
+
 module.exports = {
   getInfo,
+  updateInfo,
 };
