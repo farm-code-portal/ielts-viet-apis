@@ -1,25 +1,25 @@
 const database = require('~/integrate/connectMongoDB');
 
 async function find(query) {
-  return database.organizationCol().find(query).toArray();
+  return database.blogCol().find(query).toArray();
 }
 async function insertOne(data) {
-  return database.organizationCol().insertOne({
+  return database.blogCol().insertOne({
     ...data,
     created_at: new Date(),
   });
 }
 
 async function deleteOne(query) {
-  return database.organizationCol().deleteOne(query);
+  return database.blogCol().deleteOne(query);
 }
 
 async function findOne(query) {
-  return database.organizationCol().findOne(query);
+  return database.blogCol().findOne(query);
 }
 
 async function updateOne(query, data) {
-  return database.organizationCol().updateOne(query, { $set: data });
+  return database.blogCol().updateOne(query, { $set: data });
 }
 
 async function findAccountWithPagination(
@@ -33,24 +33,24 @@ async function findAccountWithPagination(
     parsedPageSize = 10,
   } = paginate;
   return await database
-    .organizationCol()
+    .blogCol()
     .find(query, { projection })
     .sort(sort)
-    .skip(skip)
-    .limit(parsedPageSize)
+    .skipstudentColimit(parsedPageSize)
     .toArray();
 }
 
 async function countDocument(query) {
-  return await database.organizationCol().count(query);
+  return await database.blogCol().count(query)
 }
 
-module.exports = {
-  find,
-  insertOne,
-  findOne,
-  updateOne,
-  findAccountWithPagination,
-  countDocument,
-  deleteOne,
-};
+
+  module.exports = {
+    find,
+    insertOne,
+    findOne,
+    updateOne,
+    findAccountWithPagination,
+    countDocument,
+    deleteOne,
+  };
