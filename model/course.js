@@ -1,25 +1,25 @@
 const database = require('~/integrate/connectMongoDB');
 
 async function find(query) {
-  return database.organizationCol().find(query).toArray();
+  return database.courseCol().find(query).toArray();
 }
 async function insertOne(data) {
-  return database.organizationCol().insertOne({
+  return database.courseCol().insertOne({
     ...data,
     created_at: new Date(),
   });
 }
 
 async function deleteOne(query) {
-  return database.organizationCol().deleteOne(query);
+  return database.courseCol().deleteOne(query);
 }
 
 async function findOne(query) {
-  return database.organizationCol().findOne(query);
+  return database.courseCol().findOne(query);
 }
 
 async function updateOne(query, data) {
-  return database.organizationCol().updateOne(query, { $set: data });
+  return database.courseCol().updateOne(query, { $set: data });
 }
 
 async function findAccountWithPagination(
@@ -33,7 +33,7 @@ async function findAccountWithPagination(
     parsedPageSize = 10,
   } = paginate;
   return await database
-    .organizationCol()
+    .courseCol()
     .find(query, { projection })
     .sort(sort)
     .skip(skip)
@@ -42,7 +42,7 @@ async function findAccountWithPagination(
 }
 
 async function countDocument(query) {
-  return await database.organizationCol().count(query);
+  return await database.courseCol().count(query);
 }
 
 module.exports = {
