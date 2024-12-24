@@ -23,11 +23,12 @@ async function updateStudent({id, data_student}) {
 }
 
 async function insertStudent(data_student) { 
-    const { name, avatar, introduction, description, level, resources} = data_student;
+    const { name, avatar, introduction, school, description, level, resources} = data_student;
     const createData = {
       ...(name && { name }),
       ...(avatar && { avatar }),
       ...(introduction && { introduction }),
+      ...(school && { school }),
       ...(description && { description }),
       ...(level && { level }),
       ...(resources && { resources }),
