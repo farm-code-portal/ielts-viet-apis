@@ -19,4 +19,5 @@ function validate(data, schema, reply) {
 module.exports = {
   validate,
   AuthSchema: require('~/validate/auth'),
+  BlogSchema: require('~/validate/blog'),
 };

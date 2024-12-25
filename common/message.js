@@ -13,12 +13,15 @@ const statusCode = {
 const successMessage = {
     'index': 'SUCCESS',
     'server': 'Server is running',
+    
 }
 
 const failMessage = {
     'internalError': 'Internal Server Error',
     'index': 'FAILED',
     'server': 'Server is not running',
+    'notFoundID': 'ID is not found',
+    'existData': 'Data is existed'
 }
 
 module.exports = { statusCode, successMessage, failMessage }

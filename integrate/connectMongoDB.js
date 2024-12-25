@@ -59,6 +59,7 @@ const blogCol = () => _blogCol;
 const certificateCol = () => _certificateCol;
 const levelCol = () => _levelCol;
 const courseCateCol = () => _courseCateCol;
+
 module.exports = {
   connectDatabase,
   organizationCol,
