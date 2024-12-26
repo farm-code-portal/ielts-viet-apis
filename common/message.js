@@ -13,7 +13,7 @@ const statusCode = {
 const successMessage = {
     'index': 'SUCCESS',
     'server': 'Server is running',
-    
+
 }
 
 const failMessage = {
@@ -21,7 +21,9 @@ const failMessage = {
     'index': 'FAILED',
     'server': 'Server is not running',
     'notFoundID': 'ID is not found',
-    'existData': 'Data is existed'
+    'existData': 'Data is existed',
+    'invalidData': 'Data is invalid',
+    'emptyData': 'Data is empty',
 }
 
 module.exports = { statusCode, successMessage, failMessage }

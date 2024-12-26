@@ -44,13 +44,12 @@ async function countDocument(query) {
   return await database.courseCateCol().count(query)
 }
 
-
-  module.exports = {
-    find,
-    insertOne,
-    findOne,
-    updateOne,
-    findAccountWithPagination,
-    countDocument,
-    deleteOne,
-  };
+module.exports = {
+  find,
+  insertOne,
+  findOne,
+  updateOne,
+  findAccountWithPagination,
+  countDocument,
+  deleteOne,
+};

@@ -5,5 +5,5 @@ async function getAllCourseCategories() {
 }
 
 module.exports = {
-    getAllCourseCategories,
+  getAllCourseCategories,
 };

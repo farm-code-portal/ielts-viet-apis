@@ -5,5 +5,5 @@ async function getAllLevels() {
 }
 
 module.exports = {
-    getAllLevels,
+  getAllLevels,
 };

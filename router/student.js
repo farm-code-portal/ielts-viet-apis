@@ -1,31 +1,32 @@
 const studentController = require('~/controller/student');
 
-function StudentRoute(fastify, options, done) {
+function studentRoute(fastify, options, done) {
   fastify.get(
-    '/get-all-students',
+    '/',
     studentController.getAllStudents
   );
 
   fastify.get(
-    '/get-student/:id',
+    '/:id',
     studentController.getStudent
   );
 
   fastify.delete(
-    '/delete-student/:id',
+    '/:id',
     studentController.deleteStudent
   );
 
   fastify.post(
-    '/insert-student',
+    '/',
     studentController.insertStudent
   );
+
   fastify.patch(
-    '/update-student/:id',
+    '/:id',
     studentController.updateStudent
   );
 
   done();
 }
 
-module.exports = StudentRoute;
+module.exports = studentRoute;

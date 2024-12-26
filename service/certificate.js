@@ -4,9 +4,6 @@ async function getAllCertificates() {
   return certificateModel.find({});
 }
 
-
 module.exports = {
-    getAllCertificates,
-
-
+  getAllCertificates,
 };

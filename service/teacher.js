@@ -5,40 +5,47 @@ async function getAllTeachers() {
   return teacherModel.find({});
 }
 
-async function getTeacher(id) { 
-    const course = await teacherModel.findOne({ _id: new ObjectId(id) });
-    return course;
+async function getTeacher(id) {
+  const teacher = await teacherModel.findOne({ _id: new ObjectId(id) });
+  return teacher;
 
 }
 
-async function deleteTeacher(id) { 
-    const course = await teacherModel.deleteOne({ _id: new ObjectId(id) });
-    return course;
+async function checkTeacher(dataInsert) {
+  const { name, avatar, introduction, nationality, experiences, certificates } = dataInsert;
+  const teacher = await teacherModel.findOne({ name: name, avatar: avatar, introduction: introduction, nationality: nationality, experiences: experiences, certificates: certificates });
+  return teacher;
 }
 
-async function updateTeacher({id, data_teacher}) { 
-
-  const course = await teacherModel.updateOne({ _id: new ObjectId(id) }, data_teacher);
-  return course;
+async function deleteTeacher(id) {
+  const teacher = await teacherModel.deleteOne({ _id: new ObjectId(id) });
+  return teacher;
 }
 
-async function insertTeacher(data_teacher) { 
-    const { name, avatar, introduction,  nationality, experiences, certificate_ids } = data_teacher;
-    const createData = {
-      ...(name && { name }),
-      ...(avatar && { avatar }),
-      ...(introduction && { introduction }),
-      ...(nationality && { nationality }),
-      ...(experiences && { experiences }),
-      ...(certificate_ids && { certificate_ids }),
-    };
-    const course = await teacherModel.insertOne(createData);
-    return course;
-  }
+async function updateTeacher({ id, dataUpdate }) {
+  const teacher = await teacherModel.updateOne({ _id: new ObjectId(id) }, dataUpdate);
+  return teacher;
+}
+
+async function insertTeacher(dataInsert) {
+  const { name, avatar, introduction, nationality, experiences, certificates } = dataInsert;
+  const createData = {
+    ...(name && { name }),
+    ...(avatar && { avatar }),
+    ...(introduction && { introduction }),
+    ...(nationality && { nationality }),
+    ...(experiences && { experiences }),
+    ...(certificates && { certificates }),
+  };
+  const teacher = await teacherModel.insertOne(createData);
+  return teacher;
+}
+
 module.exports = {
-    getAllTeachers,
-    getTeacher,
-    deleteTeacher,
-    updateTeacher,
-    insertTeacher,
+  getAllTeachers,
+  getTeacher,
+  deleteTeacher,
+  updateTeacher,
+  insertTeacher,
+  checkTeacher,
 };

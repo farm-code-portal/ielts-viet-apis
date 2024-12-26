@@ -1,4 +1,4 @@
-const {statusCode, successMessage, failMessage} = require('~/common/message');
+const { statusCode, successMessage, failMessage } = require('~/common/message');
 
 async function checkServer(request, reply) {
   try {

@@ -5,13 +5,18 @@ async function getInfo() {
   return organizationModel.find({});
 }
 
-async function updateInfo({id, data_organization}) { 
+async function check(id) {
+  const organization = await organizationModel.findOne({ _id: new ObjectId(id) });
+  if (organization) return true;
+  else return false;
+}
 
-  const product = await organizationModel.updateOne({ _id: new ObjectId(id) }, data_organization);
-  return product;
+async function updateInfo({ id, dataUpdate }) {
+  const organization = await organizationModel.updateOne({ _id: new ObjectId(id) }, dataUpdate);
+  return organization;
 }
 module.exports = {
   getInfo,
   updateInfo,
-
+  check,
 };

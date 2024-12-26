@@ -1,31 +1,31 @@
 const blogController = require('~/controller/blog');
 
-function BlogRoute(fastify, options, done) {
+function blogRoute(fastify, options, done) {
   fastify.get(
-    '/get-all-blogs',
+    '/',
     blogController.getAllBlogs
   );
 
   fastify.get(
-    '/get-blog/:id',
+    '/:id',
     blogController.getBlog
   );
 
   fastify.delete(
-    '/delete-blog/:id',
+    '/:id',
     blogController.deleteBlog
   );
 
   fastify.post(
-    '/insert-blog',
+    '/',
     blogController.insertBlog
   );
   fastify.patch(
-    '/update-blog/:id',
+    '/:id',
     blogController.updateBlog
   );
 
   done();
 }
 
-module.exports = BlogRoute;
+module.exports = blogRoute;

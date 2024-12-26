@@ -1,3 +1,5 @@
+
+
 function validate(data, schema, reply) {
   try {
     const { error, value } = schema.validate(data, {
@@ -9,15 +11,17 @@ function validate(data, schema, reply) {
     const message = error.details
       .map((item) => item.message)
       .join(', ');
-    reply.status(400).send({
-      message: message,
-    });
+    console.log(message);
     return false;
   }
 }
 
 module.exports = {
   validate,
-  AuthSchema: require('~/validate/auth'),
-  BlogSchema: require('~/validate/blog'),
+  authSchema: require('~/validate/auth'),
+  blogSchema: require('~/validate/blog'),
+  courseSchema: require('~/validate/course'),
+  studentSchema: require('~/validate/student'),
+  teacherSchema: require('~/validate/teacher'),
+  organizationSchema: require('~/validate/organization'),
 };

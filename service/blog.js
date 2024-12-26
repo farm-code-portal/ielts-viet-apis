@@ -6,33 +6,31 @@ async function getAllBlogs() {
 }
 
 async function getBlog(id) {
-  const course = await blogModel.findOne({ _id: new ObjectId(id) });
-  return course;
-
+  const blog = await blogModel.findOne({ _id: new ObjectId(id) });
+  return blog;
 }
 
 async function deleteBlog(id) {
-  const course = await blogModel.deleteOne({ _id: new ObjectId(id) });
-  return course;
+  const blog = await blogModel.deleteOne({ _id: new ObjectId(id) });
+  return blog;
 }
 
-async function updateBlog({ id, dataBlog }) {
-
-  const course = await blogModel.updateOne({ _id: new ObjectId(id) }, data_blog);
-  return course;
+async function updateBlog({ id, dataUpdate }) {
+  const blog = await blogModel.updateOne({ _id: new ObjectId(id) }, dataUpdate);
+  return blog;
 }
 
-async function insertBlog(data_blog) {
-  const { title, author, description, thumbnail, Blog_detail } = data_blog;
+async function insertBlog(dataInsert) {
+  const { title, author, description, thumbnail, blogDetail } = dataInsert;
   const createData = {
     ...(title && { title }),
     ...(author && { author }),
     ...(description && { description }),
     ...(thumbnail && { thumbnail }),
-    ...(Blog_detail && { Blog_detail }),
+    ...(blogDetail && { blogDetail }),
   };
-  const course = await blogModel.insertOne(createData);
-  return course;
+  const blog = await blogModel.insertOne(createData);
+  return blog;
 }
 
 module.exports = {
