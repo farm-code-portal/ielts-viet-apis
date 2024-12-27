@@ -31,7 +31,7 @@ async function insertCourse(dataInsert) {
   const createData = {
     ...(name && { name }),
     ...(thumbnail && { thumbnail }),
-    ...(price && { price }),
+    ...(price && { price: `${Number(price).toLocaleString('vi-VN')} VND` }),
     ...(duration && { duration }),
     ...(level_begin && { level_begin: new ObjectId(level_begin) }),
     ...(level_end && { level_end: new ObjectId(level_end) }),
