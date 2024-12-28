@@ -11,8 +11,8 @@ async function getCourse(id) {
 }
 
 async function checkCourse(dataInsert) {
-  const { name, thumbnail, price, duration, level_begin, level_end, category, goal } = dataInsert;
-  const course = await courseModel.findOne({ name: name, thumbnail: thumbnail, price: price, duration: duration, level_begin: new ObjectId(level_begin), level_end: new ObjectId(level_end), category: new ObjectId(category), goal: goal });
+  const { name, duration, level_begin, level_end, category, goal } = dataInsert;
+  const course = await courseModel.findOne({ name: name, duration: duration, level_begin: new ObjectId(level_begin), level_end: new ObjectId(level_end), category: new ObjectId(category), goal: goal });
   return course;
 }
 
